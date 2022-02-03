@@ -122,7 +122,7 @@
             </div>
         </div>
         <hr>
-        <p class="copyright">Copyright 2020 - Samwit Adhikary</p>
+        <p class="copyright">Copyright 2020 - Adnan Sami</p>
     </div>
 </div>
 

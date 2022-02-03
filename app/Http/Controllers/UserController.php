@@ -6,7 +6,9 @@ use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
-   
+    public function __construct(){
+        $this->middleware('checkuser')->only('store');
+    }
     public function index(Request $request)
     {
         $uName= $request->has('uname')?$request->get('uname'):'';
@@ -15,6 +17,8 @@ class UserController extends Controller
         $userInfo= User::where('name','=', $uName)->where('password', '=', $pass)->first();
 
         if(isset($userInfo)&& $userInfo!=null){
+            $product_controller = new ProductController();
+            return $product_controller->addProduct();
             return redirect('/admin_products');
         } else{
             return redirect()->back();

@@ -13,13 +13,11 @@ class AddColumnsToProductTable extends Migration
      */
     public function up()
     {
-        
         Schema::table('products', function (Blueprint $table) {
             $table->string('details');
             $table->integer('category_id');
             $table->string('size');
         });
-        
     }
 
     /**
@@ -29,7 +27,7 @@ class AddColumnsToProductTable extends Migration
      */
     public function down()
     {
-        Schema::table('products', function (Blueprint $table) {
+        Schema::table('product', function (Blueprint $table) {
             //
         });
     }
