@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="{{ url('/css/style.css') }}">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
         rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
@@ -63,6 +64,9 @@
 
             </div>
             <div class="col-2">
+                <div id="error_message">
+
+                </div>
                 <p>{{$product->category->category_name}}</p>
                 <h1>{{$product->name}}</h1>
                 <h4>Price : {{$product->price}}</h4>
@@ -79,7 +83,7 @@
                     <input type="hidden" name="pid" value="{{$product->id}}">
                     <input type="hidden" name="price" value="{{$product->price}}">
                     <input type="hidden" name="name" value="{{$product->name}}">
-                    <label>Amount</label><input name="quantity" type="text" value="1" onchange="validateAmount(this.value,{{$product->id}})">
+                    <label>Amount</label><input name="quantity" id="qty" type="text" value="1" onchange="validateAmount(this.value,{{$product->id}} )">
                     <button type="submit" class="btn">Add To Cart</button>
                 </form>
 
@@ -154,12 +158,15 @@
                 </div>
             </div>
             <hr>
-            <p class="copyright">Copyright 2020 - Samwit Adhikary</p>
+            <p class="copyright">Copyright 2022 - Adnan Sami</p>
         </div>
     </div>
 
     <!-- javascript -->
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="/js/custom.js"></script>
     <script>
         var MenuItems = document.getElementById("MenuItems");
         MenuItems.style.maxHeight = "0px";
@@ -174,23 +181,6 @@
     </script>
 
     <!-- product gallery -->
-   
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-    <script type="text/javascript" src="/js/custom.js"></script>
-    
-    <script>
-        var MenuItems = document.getElementById("MenuItems");
-        MenuItems.style.maxHeight = "0px";
-        function menutoggle() {
-            if (MenuItems.style.maxHeight == "0px") {
-                MenuItems.style.maxHeight = "200px"
-            }
-            else {
-                MenuItems.style.maxHeight = "0px"
-            }
-        }
-    </script>
-
     <script>
         var ProductImg = document.getElementById("ProductImg");
         var SmallImg = document.getElementsByClassName("small-img");

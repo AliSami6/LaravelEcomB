@@ -134,8 +134,18 @@ class ProductController extends Controller
     }
 
     public function validateAmount(Request $request){
-       dd($request->all());
+        $id= $request->has('pid')? $request->get('pid'):'';
+        $product_amount= Product::find($id)->amount;
 
-        
+        if($request->has('qty') && $request->get('qty')>$product_amount){
+            return json_encode([
+                'success'=>true,
+                'message'=>'Product quantity must me less than '. $product_amount
+            ]);
+        } else{
+            return json_encode([
+                'success'=>false
+            ]);
+        }
     }
 }
